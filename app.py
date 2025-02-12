@@ -5,7 +5,7 @@ from langchain.vectorstores import FAISS
 from langchain.chains.question_answering import load_qa_chain
 from langchain_openai import OpenAI
 import streamlit as st
-tender=PdfReader("C:/Users/DINESH/Desktop/Data for DS/vscode/openai/tender.pdf")
+tender=PdfReader("tender.pdf")
 
 raw=""
 for i,j in enumerate(tender.pages):
