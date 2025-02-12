@@ -17,7 +17,7 @@ raw=raw.replace("\n","")
 text_spliter=CharacterTextSplitter(separator="\n",chunk_size=1000,chunk_overlap=198)
 text=text_spliter.split_text(raw)
 
-openaikey="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"
+openaikey=""
 
 doc=FAISS.from_texts(text,OpenAIEmbeddings(openai_api_key=openaikey))
 
