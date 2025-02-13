@@ -1,18 +1,12 @@
-from PyPDF2 import PdfReader
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.vectorstores import FAISS
 from langchain.chains.question_answering import load_qa_chain
 from langchain_openai import OpenAI
 import streamlit as st
-tender=PdfReader("tender.pdf")
-
-raw=""
-for i,j in enumerate(tender.pages):
-    if j.extract_text():
-        raw=raw+j.extract_text()
-
-raw=raw.replace("\n","")
+import pickle
+with open("raw.pkl", "rb") as file:
+    raw = pickle.load(file)
 
 text_spliter=CharacterTextSplitter(separator="\n",chunk_size=1000,chunk_overlap=198)
 text=text_spliter.split_text(raw)
